@@ -43,6 +43,11 @@ module.exports = {
         test: /\.scss$/,
         use: extractSass.extract(['css-loader?minimize', 'sass-loader'])
       },
+        {
+          test: /\.css$/,
+          use: ['style-loader', 'css-loader']
+        },
+      
       {
        test: /\.vue$/,
        loader: 'vue-loader',

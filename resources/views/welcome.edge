@@ -2,14 +2,18 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Hello Adonis</title>
-  {{ css('style') }}
+  <title>Atail</title>
+  {{ css('app') }}
 </head>
 <body>
-  <section>
-    <div class="logo"></div>
-    <div class="title"></div>
-    <div class="subtitle"><p>AdonisJs simplicity will make you feel confident about your code</p></div>
-  </section>
+  <div id="app" >
+    <router-view></router-view>
+  </div> 
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+   {{script('atail')}}
+
+  
+    
 </body>
 </html>
