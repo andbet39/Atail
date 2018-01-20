@@ -6,7 +6,9 @@
   "main": "index.js",
   "scripts": {
     "start": "node server.js",
-    "test": "node ace test"
+    "test": "node ace test",
+    "build": "webpack",
+    "dev": "webpack --watch"
   },
   "keywords": [
     "adonisjs",
@@ -26,9 +28,32 @@
     "@adonisjs/lucid": "^4.0.24",
     "@adonisjs/redis": "^2.0.3",
     "@adonisjs/session": "^1.0.19",
-    "@adonisjs/shield": "^1.0.4"
+    "@adonisjs/shield": "^1.0.4",
+    "vue": "^2.5.3",
+    "vue-router": "^3.0.1"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "asciidoctor.js": "^1.5.6-preview.4",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1",
+    "chalk": "^2.3.0",
+    "cli-progress": "^1.6.0",
+    "css-loader": "^0.28.7",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "gray-matter": "^3.1.1",
+    "imports-loader": "^0.7.1",
+    "klaw": "^2.1.0",
+    "mute": "^2.0.6",
+    "node-sass": "^4.6.0",
+    "sass-loader": "^6.0.6",
+    "through2": "^2.0.3",
+    "vue-loader": "^13.5.0",
+    "vue-template-compiler": "^2.5.3",
+    "watch": "^1.0.2",
+    "webpack": "^3.8.1",
+    "webpack-shell-plugin": "^0.5.0"
+  },
   "autoload": {
     "App": "./app"
   }
