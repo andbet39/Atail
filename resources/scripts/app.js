@@ -5,7 +5,7 @@ import VueApp from './VueApp.vue'
 import VueSocketIO from 'vue-socket.io';
 import VueChatScroll from 'vue-chat-scroll'
 
-Vue.use(VueSocketIO, 'http://localhost:3333');
+Vue.use(VueSocketIO, '/');
 Vue.use(require('vue-moment'));
 Vue.use(VueChatScroll)
 

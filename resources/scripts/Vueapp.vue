@@ -1,15 +1,15 @@
 <template lang="html">
     <section class="main">
-      <navbar></navbar> 
+      <navbar @increasefont="fontsize++" @decreasefont="fontsize--" ></navbar> 
        <div class="columns">
-          <div class="column is-3 aside  hero is-fullheight">
+          <div class="column is-2 aside  hero is-fullheight">
               <div class="container is-fluid">
                 <channel-list @joinchannel="joinChannel" :channels="channels"></channel-list>
               </div>
           </div>
 
-          <div class="column is-9 hero is-fullheight">
-              <tail-view :lines="buffers[selected_channel]" fontsize="10" ></tail-view>
+          <div class="column is-10 hero is-fullheight">
+              <tail-view :lines="buffers[selected_channel]" :fontsize="fontsize" ></tail-view>
           </div>
      
        </div>
@@ -26,7 +26,7 @@ export default {
   components:{
     'tail-view':TailView,
     'navbar':NavBar,
-    'channel-list': ChannelList
+    'channel-list': ChannelList,
   },
   sockets:{
     connect: function(){
@@ -43,15 +43,6 @@ export default {
       if(!this.channels.includes(channel)){
         this.channels.push(channel)
       }
-
-
-    }
-  },
-  computed: {
-    // a computed getter
-    lines: function () {
-      // `this` points to the vm instance
-      return this.buffers[this.selected_channel]
     }
   },
   created:function(){
@@ -61,7 +52,8 @@ export default {
       sidenav_toggle:true,
       channels:[],
       buffers:{},
-      selected_channel:null
+      selected_channel:null,
+      fontsize:10
     }
   },
   methods:{
