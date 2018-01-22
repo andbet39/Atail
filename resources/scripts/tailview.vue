@@ -1,21 +1,31 @@
 <template>
-    <div class="logcontainer" v-chat-scroll :style="{  fontSize: fontsize + 'px' }" >
-        <ul >
-            <li v-for="line in lines">{{line.timestamp | moment("D-M-YY, h:mm:ss")}} - {{line.line}}</li>
+    <div class="logcontainer shell-wrap" v-chat-scroll :style="{  fontSize: fontsize + 'px' }" >
+
+        <ul class="shell-body">
+            <li v-for="line in intlines"><lineview :linedata="line"> </lineview></li>
         </ul>
     </div>
 </template>
 
 <script>
+    import LineView from './lineview.vue'
     export default {
         props:['lines','fontsize'],
-        updated:function(){
-            
+        components:{
+            'lineview':LineView
         },
         data:function(){
             return{
-                
-                
+                intlines:[]
+            }
+        },
+        watch:{
+            lines:
+            {
+                handler:function(newval){
+                      this.intlines=newval
+                },
+                deep:true
             }
         }
      }
@@ -24,29 +34,73 @@
 
 <style scoped>
 .logcontainer{
-
+    background-color: #141414;
+    max-height: 93vh;
+    min-height: 93vh;
     overflow-y: auto;
-    max-height: 90vh;
-    flex: 1 1 auto;
-    
-}
-.logcontainer::-webkit-scrollbar-track
-{
-	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-	border-radius: 10px;
-	background-color: #F5F5F5;
+    padding-bottom: 100px;
 }
 
-.logcontainer::-webkit-scrollbar
-{
-	width: 12px;
-	background-color: #F5F5F5;
+.shell-wrap {
+ 
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
 }
 
-.logcontainer::-webkit-scrollbar-thumb
-{
-	border-radius: 10px;
-	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
-	background-color: #555;
+.shell-top-bar {
+  text-align: center;
+  color: #525252;
+  padding: 5px 0;
+  margin: 0;
+  text-shadow: 1px 1px 0 rgba(255,255,255,0.5);
+  font-size: 0.85em;
+  border: 1px solid #CCCCCC;
+  border-bottom: none;
+
+  -webkit-border-top-left-radius: 3px;
+  -webkit-border-top-right-radius: 3px;
+  -moz-border-radius-topleft: 3px;
+  -moz-border-radius-topright: 3px;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+
+  background: #f7f7f7; /* Old browsers */
+  background: -moz-linear-gradient(top,  #f7f7f7 0%, #B8B8B8 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f7f7f7), color-stop(100%,#B8B8B8)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,  #f7f7f7 0%,#B8B8B8 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,  #f7f7f7 0%,#B8B8B8 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top,  #f7f7f7 0%,#B8B8B8 100%); /* IE10+ */
+  background: linear-gradient(to bottom,  #f7f7f7 0%,#B8B8B8 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f7f7f7', endColorstr='#B8B8B8',GradientType=0 ); /* IE6-9 */
+}
+
+.shell-body {
+  margin: 0;
+  padding: 5px;
+  list-style: none;
+  background: #141414;
+  color: #45D40C;
+  font: 1.2em 'Andale Mono', Consolas, 'Courier New';
+  line-height: 1.7em;
+
+  -webkit-border-bottom-right-radius: 3px;
+  -webkit-border-bottom-left-radius: 3px;
+  -moz-border-radius-bottomright: 3px;
+  -moz-border-radius-bottomleft: 3px;
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
+.shell-body li:before {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.shell-body li {
+  word-wrap: break-word;
+  position: relative;
+  padding: 0 0 0 15px;
 }
 </style>

@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 import VueApp from './VueApp.vue'
 import VueSocketIO from 'vue-socket.io';
