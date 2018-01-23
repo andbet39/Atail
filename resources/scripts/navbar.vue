@@ -1,7 +1,7 @@
 <template>
     <nav class="navbar has-shadow">
         <a class="navbar-item">
-            <h1 class="title"> ATaliA</h1>
+            <h1 class="title"> ATailA</h1>
         </a>
         <div class="navbar-end">
         <div class="navbar-item has-dropdown"  :class="{'is-active' : setting_enabled}">
@@ -16,13 +16,23 @@
                             Font Size
                         </div>
                         <div class="column">
-                             <button @click.prevent="increaseFont" class="button is-small is-rounded"> + </button>
-                             <button  @click.prevent="decreaseFont" class="button button is-small is-rounded"> - </button>
+                             <a @click.prevent="increaseFont" class="button is-small"> <i class="fa fa-plus" aria-hidden="true"></i></a>
+                             <a @click.prevent="decreaseFont" class="button is-small"> <i class="fa fa-minus" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                </div>
+                 <div class="navbar-item">
+                    <div class="columns">
+                        <div class="column">
+                             <a @click.prevent="toggleDate" class="button is-small"> Toggle Date</i></a>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+            <div class="navbar-item">
+                <a href="#">GitHub</a>
+            </div>
+         </div>
         </div>
         
     </nav>
@@ -44,6 +54,9 @@
             },
             toggleSettings : function(){
                 this.setting_enabled = !this.setting_enabled
+            },
+            toggleDate:function(){
+                 this.$emit('toggledate')
             }
         }
     }

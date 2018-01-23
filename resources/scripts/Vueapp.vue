@@ -1,6 +1,6 @@
 <template lang="html">
     <section class="main">
-      <navbar @increasefont="fontsize++" @decreasefont="fontsize--" ></navbar> 
+      <navbar @toggledate="datevisible=!datevisible" @increasefont="fontsize++" @decreasefont="fontsize--" ></navbar> 
        <div class="columns">
           <div class="column is-2 aside  hero is-fullheight">
               <div class="container is-fluid">
@@ -9,7 +9,7 @@
           </div>
 
           <div class="column is-10 hero is-fullheight">
-              <tail-view :lines="buffers[selected_channel]" :fontsize="fontsize" ></tail-view>
+              <tail-view :datevisible="datevisible" :lines="buffers[selected_channel]" :fontsize="fontsize" ></tail-view>
           </div>
      
        </div>
@@ -38,11 +38,17 @@ export default {
       if (!this.buffers[channel]){
         this.buffers[channel]=[]
       }
-      this.buffers[channel].push(val.message)
+      this.buffers[channel].push(val.message) 
+
+      if (this.buffers[channel].length > this.max_buffer_size){
+        this.buffers[channel].shift()
+      }
 
       if(!this.channels.includes(channel)){
         this.channels.push(channel)
       }
+
+    
     }
   },
   created:function(){
@@ -53,7 +59,9 @@ export default {
       channels:[],
       buffers:{},
       selected_channel:null,
-      fontsize:10
+      fontsize:14,
+      max_buffer_size:500,
+      datevisible:true
     }
   },
   methods:{

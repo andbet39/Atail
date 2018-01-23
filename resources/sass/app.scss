@@ -2,3 +2,39 @@
 html{
     overflow-y : hidden;
 }
+
+
+.ansi_bold{font-weight:bold}    
+.ansi_italic{font-style:italic}    
+.ansi_console_snippet{
+    font-family:monospace; 
+    white-space: pre; display: block;      
+    unicode-bidi: embed; 
+    padding:5px;
+ }    
+.ansi_console_snippet{
+    background-color:#222222;        
+    color:#eeeeee;    
+ }    
+.ansi_fg_black {
+    color:#222222
+ }    
+.ansi_fg_red{
+    color:#dd0000
+ }    
+.ansi_fg_green  {
+    color:#00cc3e
+}   
+.ansi_fg_yellow {color:#eeee00}    
+.ansi_fg_blue   {color:#0099ff}    
+.ansi_fg_purple {color:#bb00bb}   
+.ansi_fg_cyan   {color:#eeeeee}    
+.ansi_fg_white  {color:#eeeeee}    
+.ansi_bg_black  {background-color:#222222}    
+.ansi_bg_red    {background-color:#dd0000}    
+.ansi_bg_green  {background-color:#00cc3e}    
+.ansi_bg_yellow {background-color:#eeee00}    
+.ansi_bg_blue   {background-color:#0099ff}    
+.ansi_bg_purple {background-color:#bb00bb}    
+.ansi_bg_cyan   {background-color:#eeeeee}    
+ .ansi_bg_white  {background-color:#eeeeee}    

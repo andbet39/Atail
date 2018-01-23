@@ -1,13 +1,13 @@
 <template>
-    <div class="columns ">
-        <div class="column is-2 data-time">{{linedata.timestamp | moment("D-M-YY, h:mm:ss")}}</div>
-        <div class="column data-line ">{{linedata.line}}</div>
+    <div class="columns">
+        <div v-if="datevisible" class="column is-2 ansi_console_snippet">{{linedata.timestamp | moment("D-M-YY, h:mm:ss")}}</div>
+        <div v-html="linedata.line" class="column ansi_console_snippet"></div>
     </div>
 </template>
 
 <script>
     export default {
-        props:['linedata']
+        props:['linedata','datevisible']
     }
 </script>
 
@@ -20,4 +20,5 @@
     padding-top: 4px;
     padding-bottom: 4px;
  }
+  
 </style>

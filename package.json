@@ -29,6 +29,8 @@
     "@adonisjs/redis": "^2.0.3",
     "@adonisjs/session": "^1.0.19",
     "@adonisjs/shield": "^1.0.4",
+    "ansi2html-extended": "0.0.4",
+    "ansi_up-2": "^2.0.2",
     "bulma": "^0.6.2",
     "socket.io": "^2.0.4",
     "vue": "^2.5.3",
