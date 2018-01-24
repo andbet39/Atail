@@ -20,7 +20,7 @@ class RDPServer{
         });
     
         this._server.on("listening", function () {
-          console.log("server listening ");
+          console.log("UDP Server listening  on port : 8123");
         });
     
         this._server.bind(8123);

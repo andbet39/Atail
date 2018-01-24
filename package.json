@@ -1,8 +1,8 @@
 {
-  "name": "adonis-fullstack-app",
-  "version": "4.0.0",
+  "name": "ataila",
+  "version": "1.0.0",
   "adonis-version": "4.0.0",
-  "description": "The fullstack application boilerplate for Adonisjs",
+  "description": "Atalia application",
   "main": "index.js",
   "scripts": {
     "start": "node server.js",
@@ -37,7 +37,10 @@
     "vue-chat-scroll": "^1.2.1",
     "vue-moment": "^3.1.0",
     "vue-router": "^3.0.1",
-    "vue-socket.io": "^2.1.1-b"
+    "vue-socket.io": "^2.1.1-b",
+    "byline": "^5.0.0",
+    "command-line-args": "^5.0.1",
+    "faker": "^4.1.0"
   },
   "devDependencies": {
     "asciidoctor.js": "^1.5.6-preview.4",
@@ -67,5 +70,8 @@
   },
   "autoload": {
     "App": "./app"
+  },
+  "bin": {
+    "atalia": "./cli/atail.js"
   }
 }
